@@ -10,7 +10,9 @@
       "linebreak-style":"off",
       "arrow-parens":"off",
       "require-jsdoc":"off",
-      "no-trailing-spaces":"off"
+      "no-trailing-spaces":"off",
+      "max-len":"off",
+      "operator-linebreak":"off"
    },
    "extends": ["eslint:recommended", "google"]
 }
