@@ -1,5 +1,7 @@
 import {ExelComponent} from '../../core/ExcelComponent';
 import {templateTable} from './table.template';
+import {resizeHandler} from './table.resize';
+import {shouldResize} from './table.functions';
 
 export class Table extends ExelComponent {
     static className = 'excel__table';
@@ -7,15 +9,19 @@ export class Table extends ExelComponent {
     constructor($root) {
         super($root, {
             name: 'Table',
-            listeners: ['click'],
+            listeners: ['mousedown'],
         });
     }
 
     toHTML() {
-        return templateTable(20);
+        return templateTable(26);
     }
 
-    onClick(event) {
-        console.log(event.target);
+    onMousedown(event) {
+        if (shouldResize(event)) {
+            resizeHandler(event, this.$root);
+        }
     }
 }
+// 119 msScripting
+// 2278 msRendering
